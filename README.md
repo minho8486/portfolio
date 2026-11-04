@@ -1,5 +1,7 @@
 # 신민호 | SAP ABAP·ERP Portfolio
 
+> **화면에서 데이터베이스까지 이어지는 흐름을 추적하며 문제를 해결하는 SAP ABAP 개발자**
+
 SAP S/4HANA 구축 프로젝트에서 MM 모듈(재고·자재·출고)을 개발했고, SAP BTP·RAP 기반 Cloud ABAP을 학습했습니다.
 물류센터 현장에서 시스템 재고와 실물 수량이 맞지 않는 문제를 겪은 뒤, 데이터가 발생 시점부터 정확히 이어지는 시스템을 만드는 일을 목표로 SAP를 공부하고 있습니다.
 
@@ -16,7 +18,7 @@ SAP S/4HANA 구축 프로젝트에서 MM 모듈(재고·자재·출고)을 개�
 - **품질상태 업데이트 배치**: 품질보증기간이 지난 배치를 폐기 상태로 바꾸고, 해당 재고를 폐기 창고로 옮깁니다.
 - **재고 조정 (UI5 + OData)**: 재고 실사 결과를 증가·감소로 반영하고, 재고 변경과 입출고 문서 생성을 한 처리 단위로 묶었습니다.
 - **RAP 구매–입고 연계**: UUID 기술키와 Number Range 업무 번호를 분리하고, 입고 저장 시 구매오더 품목을 Action으로 입고완료 처리했습니다.
-- **트러블슈팅**: 다품목 출고 시 재고 값이 덮어써지는 오류를 디버깅으로 찾아 수정했고, 교차 테스트에서 정합성 오류 0건을 확인했습니다.
+- **트러블슈팅 6건**: ALV 이벤트와 Dynpro 화면 갱신 흐름 분리, 다품목 출고 재고 덮어쓰기(정합성 오류 0건), 자재 그룹별 품질 검증, RAP BO 간 상태 동기화, PO Item Early Numbering 등. 각 프로젝트 README의 트러블슈팅 표에 원인·해결·결과를 정리했습니다.
 
 ## Other Projects
 
@@ -35,6 +37,14 @@ SAP S/4HANA 구축 프로젝트에서 MM 모듈(재고·자재·출고)을 개�
 - SAP Certified – SAP S/4HANA Cloud Private Edition, Financial Accounting (2026.06)
 - SQL 개발자(SQLD) (2026.03)
 - 전산회계 2급 (2025.06)
+
+## Skills
+
+| SAP Development | SAP Technical Skills | ERP Knowledge |
+|---|---|---|
+| ABAP Report · Module Pool · ALV Event | Open SQL · Debugging · DDIC | MM 재고 관리 · 구매 |
+| Gateway OData · SAPUI5 | Function Module · Class / OOP | Batch Management · 유효기간 / FEFO |
+| CDS View · RAP | BAPI / RFC | FI 문서 흐름 · PP / SD 프로세스 |
 
 ## Tech Stack
 `ABAP` `ABAP Cloud` `RAP` `CDS View` `SAP Gateway (OData)` `SAPUI5 / Fiori` `SAP BTP` `S/4HANA (MM·SD·FI·PP)` `SQL`
