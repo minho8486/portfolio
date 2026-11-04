@@ -1,0 +1,170 @@
+<mvc:View
+    controllerName="ncode1.za3mm6001.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    displayBlock="true">
+
+    <f:DynamicPage id="page" headerExpanded="true">
+
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="[A3] 재고 집계 조회"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+            <f:DynamicPageHeader>
+                <VBox width="100%">
+
+                    <MessageStrip
+                        text="자재번호는 필수값입니다. 입력 조건을 기준으로 집계된 데이터가 조회됩니다."
+                        type="Information"
+                        showIcon="true"/>
+
+                    <Panel
+                        id="panIdCond"
+                        headerText="검색 조건"
+                        expandable="True"
+                        expanded="True" >
+                        <headerToolbar>
+                        <Toolbar>
+                            <Title text="조건"></Title>
+                            <ToolbarSpacer/>
+                            <Button icon="sap-icon://search" text="검색" press=".onSearch"/>
+                            <Button icon="sap-icon://reset" text="초기화" press=".onReset"/>
+                        </Toolbar>
+                        </headerToolbar>
+
+                        <VBox width="100%">
+
+                            <HBox alignItems="Center" width="100%">
+                                <Label text="자재번호" width="8rem"/>
+                                <Input
+                                    id="matidLow"
+                                    width="14rem"
+                                    value="{cond>/matidLow}"/>
+                                <Text text=" ~ " width="3rem" textAlign="Center"/>
+                                <Input
+                                    id="matidHigh"
+                                    width="14rem"
+                                    value="{cond>/matidHigh}"/>
+                            </HBox>
+
+                            <HBox alignItems="Center" width="100%">
+                                <Label text="플랜트번호" width="8rem"/>
+                                <Input
+                                    id="plaidLow"
+                                    width="14rem"
+                                    value="{cond>/plaidLow}"/>
+                                <Text text=" ~ " width="3rem" textAlign="Center"/>
+                                <Input
+                                    id="plaidHigh"
+                                    width="14rem"
+                                    value="{cond>/plaidHigh}"/>
+                            </HBox>
+
+                            <HBox alignItems="Center" width="100%">
+                                <Label text="제조일자" width="8rem"/>
+                                <DatePicker
+                                    id="hsdatLow"
+                                    width="14rem"
+                                    displayFormat="yyyy-MM-dd"
+                                    valueFormat="yyyy-MM-dd"
+                                    value="{
+                                        path: 'cond>/hsdatLow',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: {
+                                            pattern: 'yyyy-MM-dd'
+                                        }
+                                    }"/>
+                                <Text text=" ~ " width="3rem" textAlign="Center"/>
+                                <DatePicker
+                                    id="hsdatHigh"
+                                    width="14rem"
+                                    displayFormat="yyyy-MM-dd"
+                                    valueFormat="yyyy-MM-dd"
+                                    value="{
+                                        path: 'cond>/hsdatHigh',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: {
+                                            pattern: 'yyyy-MM-dd'
+                                        }
+                                    }"/>
+                            </HBox>
+                        </VBox>
+                    </Panel>
+
+                </VBox>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <Panel
+                headerText="조회 결과"
+                expandable="false">
+
+                <Table
+                    id="tabIdList"
+                    items="{/esMaterialSet}"
+                    growing="true"
+                    growingScrollToLoad="true">
+
+                    <columns>
+                        <Column>
+                            <Text text="자재번호"/>
+                        </Column>
+                        <Column>
+                            <Text text="자재명"/>
+                        </Column>
+                        <Column id="plaidCol">
+                            <Text text="플랜트"/>
+                        </Column>
+                        <Column id="pnameCol">
+                            <Text text="플랜트명"/>
+                        </Column>
+                        <Column id="batidCol">
+                            <Text text="배치번호"/>
+                        </Column>
+                        <Column id="hsdatCol">
+                            <Text text="제조일자"/>
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="재고수량"/>
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="폐기수량"/>
+                        </Column>
+                        <Column>
+                            <Text text="단위"/>
+                        </Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{Matid}"/>
+                                <Text text="{Mtext}"/>
+                                <Text text="{Plaid}"/>
+                                <Text text="{Pname}"/>
+                                <Text text="{Batid}"/>
+                                <Text text="{
+                                                path: 'Hsdat',
+                                                type: 'sap.ui.model.type.Date',
+                                                formatOptions: { pattern: 'yyyy-MM-dd' }
+                                            }"/>
+                                <ObjectNumber number="{Labst}"/>
+                                <ObjectNumber number="{Scrap}"/>
+                                <Text text="{Meins}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+
+                </Table>
+            </Panel>
+        </f:content>
+
+    </f:DynamicPage>
+</mvc:View>
