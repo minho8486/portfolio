@@ -18,9 +18,16 @@ SAP S/4HANA 구축 프로젝트에서 MM 모듈(재고·자재·출고)을 개�
 - **RAP 구매–입고 연계**: UUID 기술키와 Number Range 업무 번호를 분리하고, 입고 저장 시 구매오더 품목을 Action으로 입고완료 처리했습니다.
 - **트러블슈팅**: 다품목 출고 시 재고 값이 덮어써지는 오류를 디버깅으로 찾아 수정했고, 교차 테스트에서 정합성 오류 0건을 확인했습니다.
 
+## Other Projects
+
+| 프로젝트 | 기간 | 내용 | 기술 |
+|---|---|---|---|
+| [전기차 화재 분석 대시보드](ev-fire-analysis/) | 2025.08 ~ 2025.09 | 공공데이터로 전기차·내연기관차의 등록 대수 대비 화재율 비교, Streamlit 대시보드 배포 | Python, pandas, Plotly, Streamlit |
+
 ## Education
 - SAP CODE 아카데미 1기 (2025.10 ~ 2026.07, 1,440시간)
 - SAP KDT 심화과정 2기 (2026.07 ~ 2026.09, 320시간)
+- 새싹(SeSAC) × 베스핀글로벌 AI서비스 운영을 위한 클라우드 데이터 엔지니어 과정 (2025.08 ~ 2025.10, 수강)
 
 ## Certifications
 - SAP Certified Associate – Back-End Developer – ABAP Cloud (2026.06)
