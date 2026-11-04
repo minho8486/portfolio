@@ -22,6 +22,7 @@ SAP S/4HANA 구축 프로젝트에서 MM 모듈(재고·자재·출고)을 개�
 
 | 프로젝트 | 기간 | 내용 | 기술 |
 |---|---|---|---|
+| [모션 인식 게임 (Unity)](motion-game/) | 2023.03 ~ 2023.12 | 웹캠 포즈·손 인식(Python) → UDP → Unity로 몸 동작을 인식하는 팀 게임. 인식·통신 공통부, 장애물 회피·아이템 전달 스테이지 담당 | Python, OpenCV, cvzone, UDP, Unity, C# |
 | [전기차 화재 분석 대시보드](ev-fire-analysis/) | 2025.08 ~ 2025.09 | 공공데이터로 전기차·내연기관차의 등록 대수 대비 화재율 비교, Streamlit 대시보드 배포 | Python, pandas, Plotly, Streamlit |
 
 ## Education
