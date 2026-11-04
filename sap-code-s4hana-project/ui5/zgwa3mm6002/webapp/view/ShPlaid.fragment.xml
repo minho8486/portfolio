@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <SelectDialog
+        title="플랜트 선택"
+        search=".onShPlaidSearch"
+        confirm=".onShPlaidClose"
+        cancel=".onShPlaidClose"
+        items="{/esPlaSet}">
+
+        <StandardListItem
+            title="{Pname}"
+            description="{Plaid}"
+            type="Active"/>
+    </SelectDialog>
+
+</core:FragmentDefinition>

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "4.0"
+metadata:
+  name: zpa3.zgwa3mm6002
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: Laptop
+          url: http://<SAP_BACKEND_HOST>:<PORT>
+          client: '<SAP_CLIENT>'
+        app:
+          name: ZGWA3MM6002
+          description: An SAP Fiori application.
+          package: ZPA3MM
+          transport: EFXK903315
+        exclude:
+          - /test/
+          - /localService/

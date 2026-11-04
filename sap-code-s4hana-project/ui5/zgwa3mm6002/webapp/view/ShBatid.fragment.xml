@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <SelectDialog
+        title="배치번호 선택"
+        search=".onShBatidSearch"
+        confirm=".onShBatidClose"
+        cancel=".onShBatidClose"
+        items="{/esBatSet}">
+
+        <StandardListItem
+            title="{Batid}"
+            description="{Matid}"
+            type="Active"/>
+    </SelectDialog>
+
+</core:FragmentDefinition>

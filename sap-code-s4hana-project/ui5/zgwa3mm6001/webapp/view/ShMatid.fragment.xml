@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <SelectDialog
+        id="sdMatid"
+        title="자재번호 선택"
+        noDataText="조회된 자재가 없습니다."
+        items="{/esMatSet}"
+        confirm=".onShMatidClose"
+        cancel=".onShMatidClose"
+        search=".onShMatidSearch">
+
+        <StandardListItem
+            title="{Mtext}"
+            description="{Matid}"
+            type="Active"/>
+    </SelectDialog>
+</core:FragmentDefinition>

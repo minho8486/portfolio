@@ -1,0 +1,108 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+
+    <Dialog
+        id="idAdjustDialog"
+        title="재고 조정"
+        contentWidth="42rem"
+        draggable="true"
+        resizable="true">
+
+        <content>
+
+            <VBox class="sapUiSmallMargin">
+
+                <MessageStrip
+                    text="선택한 재고의 조정구분과 조정수량을 입력한 후 저장하세요."
+                    type="Information"
+                    showIcon="true"
+                    class="sapUiSmallMarginBottom"/>
+
+                <ObjectHeader
+                    title="{adjust>/Matid}"
+                    intro="선택 재고"
+                    number="{adjust>/Labst}"
+                    numberUnit="{adjust>/Meins}"
+                    responsive="true">
+
+                    <attributes>
+                        <ObjectAttribute
+                            title="배치번호"
+                            text="{adjust>/Batid}"/>
+                        <ObjectAttribute
+                            title="플랜트"
+                            text="{adjust>/Plaid}"/>
+                        <ObjectAttribute
+                            title="저장공간"
+                            text="{adjust>/Stoid}"/>
+                    </attributes>
+
+                </ObjectHeader>
+
+                <Panel
+                    headerText="조정 입력"
+                    class="sapUiSmallMarginTop">
+
+                    <form:SimpleForm
+                        editable="true"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="4"
+                        labelSpanS="12"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false">
+
+                        <Label text="조정구분" required="true"/>
+                        <Select
+                            selectedKey="{adjust>/Adjty}"
+                            width="12rem">
+                            <core:Item key="A" text="증가"/>
+                            <core:Item key="S" text="감소"/>
+                        </Select>
+
+                        <Label text="조정수량" required="true"/>
+                        <Input
+                            value="{adjust>/Adjqt}"
+                            type="Number"
+                            width="12rem"
+                            placeholder="조정 수량 입력"/>
+
+                        <Label text="적요"/>
+                        <TextArea
+                            value="{adjust>/Bktxt}"
+                            rows="3"
+                            maxLength="40"
+                            width="100%"
+                            placeholder="조정 사유 입력"/>
+
+                    </form:SimpleForm>
+
+                </Panel>
+
+            </VBox>
+
+        </content>
+
+        <beginButton>
+            <Button
+                text="저장"
+                type="Emphasized"
+                icon="sap-icon://save"
+                press=".onSaveAdjust"/>
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="취소"
+                icon="sap-icon://decline"
+                press=".onCloseAdjustDialog"/>
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>

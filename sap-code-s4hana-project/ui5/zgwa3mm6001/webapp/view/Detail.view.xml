@@ -1,0 +1,106 @@
+<mvc:View
+    controllerName="zpa3.zgwa3mm6001.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+    <Page
+        title="자재 상세정보"
+        showNavButton="true"
+        navButtonPress=".onNavBack"
+        class="sapUiResponsiveContentPadding">
+
+        <content>
+
+            <ObjectHeader
+                title="{local>Matid}"
+                intro="자재 상세 정보"
+                number="{local>Labst}"
+                numberUnit="{local>Meins}"
+                responsive="true"
+                backgroundDesign="Translucent">
+
+                <attributes>
+                    <ObjectAttribute
+                        title="자재명"
+                        text="{local>Mtext}"/>
+                    <ObjectAttribute
+                        title="자재타입"
+                        text="{local>Mtype} {local>MtypeT}"/>
+                    <ObjectAttribute
+                        title="자재그룹"
+                        text="{local>Matgr} {local>MatgrT}"/>
+                </attributes>
+
+                <statuses>
+                    <ObjectStatus
+                        title="보관방법"
+                        text="{local>StwayT}"
+                        state="Information"/>
+                </statuses>
+
+            </ObjectHeader>
+
+            <Panel
+                id="idPanDetail"
+                headerText="기본 정보"
+                expandable="false"
+                class="sapUiMediumMarginTop">
+
+                <form:SimpleForm
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="1"
+                    emptySpanL="1"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="1"
+                    singleContainerFullSize="false">
+
+                    <core:Title text="자재 정보"/>
+
+                    <Label text="자재번호"/>
+                    <Input value="{local>Matid}" editable="false"/>
+                    <Label text="자재명"/>
+                    <Input value="{local>Mtext}" editable="false"/>
+
+                    <Label text="자재타입"/>
+                    <Input value="{local>Mtype}" editable="false"/>
+                    <Label text="자재타입명"/>
+                    <Input value="{local>MtypeT}" editable="false"/>
+
+                    <Label text="자재그룹"/>
+                    <Input value="{local>Matgr}" editable="false"/>
+                    <Label text="자재그룹명"/>
+                    <Input value="{local>MatgrT}" editable="false"/>
+
+                    <core:Title text="관리 정보"/>
+
+                    <Label text="보관방법"/>
+                    <Input value="{local>Stway}" editable="false"/>
+                    <Label text="보관방법명"/>
+                    <Input value="{local>StwayT}" editable="false"/>
+
+                    <Label text="기본단위"/>
+                    <Input value="{local>Meins}" editable="false"/>
+
+                    <Label text="품질유지기간"/>
+                    <Input value="{local>Maqua}" editable="false"/>
+                    <Text text="일"></Text>
+
+                </form:SimpleForm>
+
+            </Panel>
+
+        </content>
+
+    </Page>
+</mvc:View>

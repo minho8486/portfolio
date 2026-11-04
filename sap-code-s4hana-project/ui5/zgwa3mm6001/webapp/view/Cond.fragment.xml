@@ -1,0 +1,119 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+
+    <VBox width="100%" class="sapUiSmallMarginTop">
+
+        <MessageStrip
+            text="자재번호는 필수값입니다. 입력 조건을 기준으로 집계된 재고 데이터를 조회합니다."
+            type="Information"
+            showIcon="true"
+            class="sapUiSmallMarginBottom"/>
+
+        <Panel
+            id="panIdCond"
+            headerText="검색 조건"
+            expandable="true"
+            expanded="true"
+            width="100%"
+            class="sapUiNoContentPadding">
+
+            <form:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="2"
+                labelSpanL="2"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="1"
+                emptySpanL="1"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1"
+                singleContainerFullSize="false"
+                class="sapUiSmallMargin">
+
+                <core:Title text="기본 조건"/>
+
+                <Label text="자재번호" required="true"/>
+                <HBox alignItems="Center" wrap="Wrap">
+                    <Input
+                        id="matidLow"
+                        width="11rem"
+                        value="{cond>/matidLow}"
+                        placeholder="시작 자재번호"
+                        showValueHelp="true"
+                        valueHelpRequest=".onShMatid"/>
+                    <Text text="~" class="sapUiTinyMarginBeginEnd"/>
+                    <Input
+                        id="matidHigh"
+                        width="11rem"
+                        value="{cond>/matidHigh}"
+                        placeholder="종료 자재번호"
+                        showValueHelp="true"
+                        valueHelpRequest=".onShMatid"/>
+                </HBox>
+
+                <Label text="플랜트번호"/>
+                <HBox alignItems="Center" wrap="Wrap">
+                    <Input
+                        id="plaidLow"
+                        width="11rem"
+                        value="{cond>/plaidLow}"
+                        placeholder="시작 플랜트"
+                        showValueHelp="true"
+                        valueHelpRequest=".onShPlaid"/>
+                    <Text text="~" class="sapUiTinyMarginBeginEnd"/>
+                    <Input
+                        id="plaidHigh"
+                        width="11rem"
+                        value="{cond>/plaidHigh}"
+                        placeholder="종료 플랜트"
+                        showValueHelp="true"
+                        valueHelpRequest=".onShPlaid"/>
+                </HBox>
+
+                <core:Title text="기간 조건"/>
+
+                <Label text="제조일자"/>
+                <HBox alignItems="Center" wrap="Wrap">
+                    <DatePicker
+                        id="hsdatLow"
+                        width="11rem"
+                        displayFormat="yyyy-MM-dd"
+                        valueFormat="yyyy-MM-dd"
+                        placeholder="시작일"
+                        value="{
+                            path: 'cond>/hsdatLow',
+                            type: 'sap.ui.model.type.Date',
+                            formatOptions: {
+                                pattern: 'yyyy-MM-dd'
+                            }
+                        }"/>
+                    <Text text="~" class="sapUiTinyMarginBeginEnd"/>
+                    <DatePicker
+                        id="hsdatHigh"
+                        width="11rem"
+                        displayFormat="yyyy-MM-dd"
+                        valueFormat="yyyy-MM-dd"
+                        placeholder="종료일"
+                        value="{
+                            path: 'cond>/hsdatHigh',
+                            type: 'sap.ui.model.type.Date',
+                            formatOptions: {
+                                pattern: 'yyyy-MM-dd'
+                            }
+                        }"/>
+                </HBox>
+
+            </form:SimpleForm>
+
+        </Panel>
+
+    </VBox>
+
+</core:FragmentDefinition>

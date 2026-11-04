@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <SelectDialog
+        id="sdPlaid"
+        title="플랜트번호 선택"
+        noDataText="조회된 플랜트가 없습니다."
+        items="{/esPlaSet}"
+        confirm=".onShPlaidClose"
+        cancel=".onShPlaidClose"
+        search=".onShPlaidSearch">
+
+        <StandardListItem
+            title="{Pname}"
+            description="{Plaid}"
+            type="Active"/>
+    </SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,255 @@
+<mvc:View
+    controllerName="zpa3.zgwa3mm6002.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    displayBlock="true">
+
+    <Page
+        id="page"
+        title="재고 조정"
+        class="sapUiResponsiveContentPadding">
+
+        <content>
+
+            <VBox width="100%" class="sapUiSmallMarginTop">
+
+                <Panel
+                    headerText="자재별 재고 현황"
+                    width="100%"
+                    class="sapUiSmallMarginBottom">
+
+                    <viz:VizFrame
+                        id="idInvenChart"
+                        width="100%"
+                        height="340px"
+                        vizType="column">
+
+                        <viz:dataset>
+                            <viz.data:FlattenedDataset data="{/esInvenSet}">
+
+                                <viz.data:dimensions>
+
+                                    <!-- 자재명 -->
+                                    <viz.data:DimensionDefinition
+                                        name="자재"
+                                        value="{Mtext}"/>
+
+                                    <!-- 단위 -->
+                                    <viz.data:DimensionDefinition
+                                        name="단위"
+                                        value="{Meins}"/>
+
+                                </viz.data:dimensions>
+
+                                <viz.data:measures>
+
+                                    <viz.data:MeasureDefinition
+                                        name="재고수량"
+                                        value="{Labst}"/>
+
+                                </viz.data:measures>
+
+                            </viz.data:FlattenedDataset>
+                        </viz:dataset>
+
+                        <viz:feeds>
+
+                            <viz.feeds:FeedItem
+                                uid="categoryAxis"
+                                type="Dimension"
+                                values="자재,단위"/>
+
+                            <viz.feeds:FeedItem
+                                uid="valueAxis"
+                                type="Measure"
+                                values="재고수량"/>
+
+                        </viz:feeds>
+
+                    </viz:VizFrame>
+
+                </Panel>
+
+                <Panel
+                    headerText="조회 조건"
+                    expandable="true"
+                    expanded="true"
+                    width="100%"
+                    class="sapUiSmallMarginBottom sapUiNoContentPadding">
+
+                    <MessageStrip
+                        text="자재번호와 플랜트번호는 필수값입니다. 조건 입력 후 재고 목록을 조회하고 선택한 재고를 조정할 수 있습니다."
+                        type="Information"
+                        showIcon="true"
+                        class="sapUiSmallMargin"/>
+
+                    <form:SimpleForm
+                        editable="true"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="2"
+                        labelSpanL="2"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="1"
+                        emptySpanL="1"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="1"
+                        singleContainerFullSize="false"
+                        class="sapUiSmallMargin">
+
+                        <core:Title text="기본 조건"/>
+
+                        <Label text="자재번호" required="true"/>
+                        <Input
+                            value="{cond>/Matid}"
+                            width="15rem"
+                            placeholder="예: M20080000000001"
+                            showValueHelp="true"
+                            valueHelpRequest=".onShMatid"/>
+
+                        <Label text="플랜트번호" required="true"/>
+                        <Input
+                            value="{cond>/Plaid}"
+                            width="15rem"
+                            placeholder="플랜트 입력"
+                            showValueHelp="true"
+                            valueHelpRequest=".onShPlaid"/>
+
+                        <core:Title text="상세 조건"/>
+
+                        <Label text="배치번호"/>
+                        <Input
+                            value="{cond>/Batid}"
+                            width="15rem"
+                            placeholder="배치번호 입력"
+                            showValueHelp="true"
+                            valueHelpRequest=".onShBatid"/>
+
+                        <Label text="저장공간"/>
+                        <Input
+                            value="{cond>/Stoid}"
+                            width="15rem"
+                            placeholder="저장공간 입력"
+                            showValueHelp="true"
+                            valueHelpRequest=".onShStoid"/>
+
+                    </form:SimpleForm>
+
+                    <Toolbar>
+                        <ToolbarSpacer/>
+                        <Button
+                            text="검색"
+                            type="Emphasized"
+                            icon="sap-icon://search"
+                            press=".onSearch"/>
+                        <Button
+                            text="초기화"
+                            icon="sap-icon://reset"
+                            press=".onReset"/>
+                    </Toolbar>
+
+                </Panel>
+
+                <Panel
+                    headerText="재고 목록"
+                    width="100%"
+                    class="sapUiNoContentPadding">
+
+                    <Table
+                        id="idStockTable"
+                        mode="SingleSelectLeft"
+                        items="{
+                            path: '/esStockAdjSet',
+                            suspended: true
+                        }"
+                        growing="true"
+                        growingThreshold="20"
+                        sticky="ColumnHeaders,HeaderToolbar"
+                        alternateRowColors="true"
+                        fixedLayout="false"
+                        width="100%">
+
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <Title text="재고 조회 결과" level="H3"/>
+                                <ToolbarSpacer/>
+                                <Button
+                                    text="선택 재고 조정"
+                                    type="Emphasized"
+                                    icon="sap-icon://edit"
+                                    press=".onOpenAdjustDialog"/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+
+                        <columns>
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="자재번호"/>
+                            </Column>
+
+                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                <Text text="배치번호"/>
+                            </Column>
+
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="플랜트"/>
+                            </Column>
+
+                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                <Text text="저장공간"/>
+                            </Column>
+
+                            <Column hAlign="End">
+                                <Text text="현재재고"/>
+                            </Column>
+
+                            <Column>
+                                <Text text="단위"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                <cells>
+                                    <ObjectIdentifier
+                                        title="{Matid}"
+                                        text="{Batid}"/>
+
+                                    <Text text="{Batid}"/>
+
+                                    <ObjectStatus
+                                        text="{Plaid}"
+                                        state="Information"/>
+
+                                    <Text text="{Stoid}"/>
+
+                                    <ObjectNumber
+                                        number="{Labst}"
+                                        unit="{Meins}"
+                                        emphasized="true"/>
+
+                                    <ObjectStatus
+                                        text="{Meins}"
+                                        state="Success"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+
+                </Panel>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+</mvc:View>

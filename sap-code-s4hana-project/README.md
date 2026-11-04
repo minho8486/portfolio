@@ -36,10 +36,12 @@
 | Report | `ZRA3MM6001` | 재고 집계 조회 | 자재·플랜트·배치별 가용/폐기 재고 집계 |
 | Report | `ZRA3MM6002` | 생산오더 출고 현황 조회 | 생산오더별 자재 투입(출고) 상태 모니터링 (ALV Tree + Grid) |
 | Batch | `ZRA3MM6003` | 품질상태 업데이트 배치 | 품질보증기간 기준 배치 품질상태 갱신, 만료 재고 폐기 창고 이동, 처리 로그 |
-| Gateway | `ZCL_ZGWA3MM6001_DPC_EXT` | 재고 집계 OData | 자재·플랜트 목록, 자재 상세 |
-| Gateway | `ZCL_ZGWA3MM6002_DPC_EXT` | 재고·재고조정 OData | 재고·배치·저장위치 조회, 재고 조정 등록(Create) |
-| Gateway | `ZCL_ZGWA3MM6003_DPC_EXT` | 유통기한 OData | 배치별 유통기한 목록·차트 데이터 |
-| SAPUI5 | `za3mm6001` | 재고 집계 조회 앱 | 자재·플랜트·생산일자 범위 필터 조회 (`ZGWA3MM6001_SRV` 연동) |
+| Gateway | `ZCL_ZGWA3MM6001_DPC_EXT` | 재고 집계 OData | 재고 집계 목록, 자재 상세, 자재·플랜트 Search Help |
+| Gateway | `ZCL_ZGWA3MM6002_DPC_EXT` | 재고 조정 OData | 재고·배치·저장위치 조회, 재고 조정 등록(Create) |
+| Gateway | `ZCL_ZGWA3MM6003_DPC_EXT` | 폐기 대상 OData | 폐기 대상 배치 목록·차트 데이터 |
+| SAPUI5 | `zgwa3mm6001` | 재고 집계 조회 | 조건 검색, Search Help, 자재 상세 화면 이동(Routing) |
+| SAPUI5 | `zgwa3mm6002` | 재고 조정 | 재고 조회·차트, 증가/감소 조정 등록 (재고 실사 결과 반영) |
+| SAPUI5 | `zgwa3mm6003` | 폐기 대상 조회 | 폐기 대상 배치 목록과 도넛 차트 |
 
 ## 3. 주요 구현 내용
 
@@ -84,7 +86,19 @@ SELECT a~matid, plaid AS plaid1, stoid, a~batid, labst,
 ### 3-4. 조회·모니터링
 - **재고 집계 조회 (`ZRA3MM6001`)**: `GROUP BY`와 `SUM`으로 자재·플랜트·배치별 가용/폐기 재고를 집계합니다.
 - **생산오더 출고 현황 (`ZRA3MM6002`)**: Docking Container와 Splitter로 화면을 나누고, ALV Tree(생산오더)와 ALV Grid(투입 자재)로 출고 상태를 함께 보여 줍니다.
-- **SAPUI5 앱 (`za3mm6001`)**: OData 필터(`BT`/`EQ`)로 자재·플랜트·생산일자 범위를 조회합니다. 기본 조회 기간은 최근 14일입니다.
+- **재고 집계 조회 앱 (`zgwa3mm6001`)**: OData 필터(`BT`/`EQ`)로 자재·플랜트·생산일자 범위를 조회하고, 목록에서 자재를 누르면 상세 화면으로 이동합니다.
+- **폐기 대상 조회 앱 (`zgwa3mm6003`)**: 폐기 대상 배치를 목록과 도넛 차트(VizFrame)로 보여 줍니다.
+
+### 3-5. 재고 조정 (`zgwa3mm6002` + `ZCL_ZGWA3MM6002_DPC_EXT`)
+재고 실사 결과처럼 시스템 재고와 실물 수량이 다를 때 재고를 증가(`A`)·감소(`S`)로 조정합니다.
+- **화면(UI5)**: 조정 구분 미선택, 0 이하 수량, 현재 재고보다 큰 감소 수량을 저장 전에 막습니다.
+- **서버(OData Create)**: 같은 조건을 서버에서 다시 검증한 뒤 아래 순서로 처리합니다.
+  1. 현재 재고 조회
+  2. Number Range로 입출고 문서 번호 채번
+  3. 재고 수량 변경
+  4. 입출고 Header·Item 생성
+  5. 모든 단계가 성공하면 `COMMIT WORK`, 실패하면 `ROLLBACK WORK`
+- 재고를 바꿀 때 입출고 문서를 함께 남겨, 조정 내역을 나중에 추적할 수 있게 했습니다.
 
 ## 4. 트러블슈팅 – 다품목 출고 시 재고 수량 오류
 - **현상**: 여러 품목을 한 번에 출고하면 출고는 정상 등록되지만 재고 수량이 실제와 다르게 반영되었습니다.
@@ -108,10 +122,10 @@ sap-code-s4hana-project/
 │       └── screens/          # Screen(Dynpro) · GUI Title 정의
 ├── gateway/                  # OData 서비스 DPC_EXT 클래스
 ├── ddic/                     # 프로그램이 사용하는 Structure · Table 정의 (Markdown)
-└── ui5/za3mm6001/            # SAPUI5 재고 집계 조회 앱
+└── ui5/                      # SAPUI5 앱 3개 (재고 집계 조회 / 재고 조정 / 폐기 대상 조회)
 ```
 
 - Include 접미사: `TOP` 전역 선언 · `O01` PBO 모듈 · `I01` PAI 모듈 · `F01` 서브루틴 · `C01` 로컬 클래스(이벤트 핸들러)
 - ABAP 소스는 SAP 시스템에서 Mass Download로 내보낸 파일을 `.abap` 텍스트로 변환한 것입니다.
 - `ddic/tables`의 테이블 중 일부는 팀 공용 테이블로, 프로그램 이해를 돕기 위해 참조용으로 포함했습니다.
-- 서버 주소 등 접속 정보는 `<SAP_BACKEND_HOST>`로 가렸습니다.
+- 서버 주소와 클라이언트 번호 등 접속 정보는 `<SAP_BACKEND_HOST>`, `<SAP_CLIENT>`로 가렸습니다.

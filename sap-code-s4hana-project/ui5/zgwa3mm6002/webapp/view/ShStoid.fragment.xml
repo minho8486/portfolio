@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <SelectDialog
+        title="저장공간 선택"
+        search=".onShStoidSearch"
+        confirm=".onShStoidClose"
+        cancel=".onShStoidClose"
+        items="{/esStoSet}">
+
+        <StandardListItem
+            title="{Stoid}"
+            description="{Plaid}"
+            type="Active"/>
+    </SelectDialog>
+
+</core:FragmentDefinition>

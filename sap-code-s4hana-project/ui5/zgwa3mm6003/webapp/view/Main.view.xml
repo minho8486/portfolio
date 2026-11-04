@@ -1,0 +1,296 @@
+<mvc:View
+    controllerName="zpa3.zgwa3mm6003.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    displayBlock="true">
+
+    <Page
+        id="page"
+        title="폐기 대상 조회"
+        showNavButton="false"
+        class="sapUiResponsiveContentPadding">
+
+        <content>
+            <VBox width="100%" class="sapUiSmallMarginTop">
+
+                <ObjectHeader
+                    title="폐기 대상 재고 모니터링"
+                    intro="제조일자와 품질유지기간을 기준으로 폐기 위험 재고를 조회합니다."
+                    icon="sap-icon://inventory">
+                    <attributes>
+                        <ObjectAttribute title="상태 기준" text="정상 / 임박 / 만료"/>
+                        <ObjectAttribute title="임박 기준" text="잔여일수 30일 이하"/>
+                    </attributes>
+                </ObjectHeader>
+
+                <Panel
+                    headerText="조회 조건"
+                    expandable="true"
+                    expanded="true"
+                    width="100%"
+                    class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+
+                    <form:SimpleForm
+                        editable="true"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="2"
+                        labelSpanL="2"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="3"
+                        columnsL="3"
+                        columnsM="1"
+                        singleContainerFullSize="false">
+
+                        <VBox class="sapUiSmallMargin">
+
+                            <HBox
+                                width="100%"
+                                alignItems="Center"
+                                class="sapUiTinyMarginBottom">
+
+                                <Label
+                                    text="자재번호"
+                                    width="6rem"
+                                    textAlign="End"
+                                    class="sapUiTinyMarginEnd"/>
+
+                                <Input
+                                    value="{cond>/Matid}"
+                                    placeholder="예: M20080000000001"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onShMatid"
+                                    width="100%"/>
+
+                            </HBox>
+
+                            <HBox
+                                width="100%"
+                                alignItems="Center"
+                                class="sapUiTinyMarginBottom">
+
+                                <Label
+                                    text="플랜트"
+                                    width="6rem"
+                                    textAlign="End"
+                                    class="sapUiTinyMarginEnd"/>
+
+                                <Input
+                                    value="{cond>/Plaid}"
+                                    placeholder="예: P000000001"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onShPlaid"
+                                    width="100%"/>
+
+                            </HBox>
+
+                            <HBox
+                                width="100%"
+                                alignItems="Center">
+
+                                <Label
+                                    text="배치번호"
+                                    width="6rem"
+                                    textAlign="End"
+                                    class="sapUiTinyMarginEnd"/>
+
+                                <Input
+                                    value="{cond>/Batid}"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onShBatid"
+                                    width="100%"/>
+
+                            </HBox>
+
+                        </VBox>
+
+                    </form:SimpleForm>
+
+                    <Toolbar>
+                        <ToolbarSpacer/>
+                        <Button
+                            text="초기화"
+                            icon="sap-icon://reset"
+                            press=".onReset"/>
+                        <Button
+                            text="조회"
+                            type="Emphasized"
+                            icon="sap-icon://search"
+                            press=".onSearch"/>
+                    </Toolbar>
+
+                </Panel>
+
+                <Panel
+                    headerText="유통기한 상태별 재고 현황"
+                    width="100%"
+                    class="sapUiSmallMarginBottom">
+
+                    <VBox>
+                        <MessageStrip
+                            text="현재 재고를 정상, 임박, 만료 상태로 분류하여 비중을 확인할 수 있습니다."
+                            type="Information"
+                            showIcon="true"
+                            class="sapUiSmallMarginBottom"/>
+
+                        <viz:VizFrame
+                            id="idExpChart"
+                            width="100%"
+                            height="360px"
+                            vizType="donut">
+
+                            <viz:dataset>
+                                <viz.data:FlattenedDataset data="{/esExpChartSet}">
+                                    <viz.data:dimensions>
+                                        <viz.data:DimensionDefinition
+                                            name="상태"
+                                            value="{QstatT}"/>
+                                    </viz.data:dimensions>
+
+                                    <viz.data:measures>
+                                        <viz.data:MeasureDefinition
+                                            name="재고수량"
+                                            value="{Labst}"/>
+                                    </viz.data:measures>
+                                </viz.data:FlattenedDataset>
+                            </viz:dataset>
+
+                            <viz:feeds>
+                                <viz.feeds:FeedItem
+                                    uid="size"
+                                    type="Measure"
+                                    values="재고수량"/>
+
+                                <viz.feeds:FeedItem
+                                    uid="color"
+                                    type="Dimension"
+                                    values="상태"/>
+                            </viz:feeds>
+
+                        </viz:VizFrame>
+                    </VBox>
+
+                </Panel>
+
+                <Panel
+                    headerText="폐기 대상 목록"
+                    width="100%"
+                    class="sapUiNoContentPadding">
+
+                    <Table
+                        id="idExpTable"
+                        items="{
+                            path: '/esExpListSet',
+                            suspended: true
+                        }"
+                        growing="true"
+                        growingThreshold="20"
+                        sticky="ColumnHeaders,HeaderToolbar"
+                        alternateRowColors="true"
+                        fixedLayout="false"
+                        noDataText="조회 조건을 입력한 후 조회 버튼을 눌러주세요.">
+
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <Title text="유통기한 기준 재고 목록" level="H3"/>
+                                <ToolbarSpacer/>
+                                <Button
+                                    text="새로고침"
+                                    icon="sap-icon://refresh"
+                                    press=".onSearch"/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+
+                        <columns>
+                            <Column minScreenWidth="Tablet" demandPopin="false">
+                                <Text text="자재"/>
+                            </Column>
+
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="배치번호"/>
+                            </Column>
+
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="플랜트"/>
+                            </Column>
+
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="저장공간"/>
+                            </Column>
+
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="제조일자"/>
+                            </Column>
+
+                            <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="잔여일수"/>
+                            </Column>
+
+                            <Column hAlign="End">
+                                <Text text="재고수량"/>
+                            </Column>
+
+                            <Column hAlign="Center">
+                                <Text text="상태"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem type="Inactive">
+                                <cells>
+                                    <ObjectIdentifier
+                                        title="{Matid}"
+                                        text="{Mtext}"/>
+
+                                    <Text text="{Batid}"/>
+
+                                    <ObjectIdentifier
+                                        title="{Plaid}"
+                                        text="{Pname}"/>
+
+                                    <Text text="{Stoid}"/>
+
+                                    <Text
+                                        text="{
+                                            path: 'Hsdat',
+                                            type: 'sap.ui.model.type.Date',
+                                            formatOptions: {
+                                                pattern: 'yyyy-MM-dd'
+                                            }
+                                        }"/>
+
+                                    <ObjectNumber
+                                        number="{Rdays}"
+                                        unit="일"/>
+
+                                    <ObjectNumber
+                                        number="{Labst}"
+                                        unit="{Meins}"
+                                        emphasized="true"/>
+
+                                    <ObjectStatus
+                                        text="{QstatT}"
+                                        state="{Astat}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+
+                </Panel>
+
+            </VBox>
+        </content>
+
+    </Page>
+</mvc:View>
