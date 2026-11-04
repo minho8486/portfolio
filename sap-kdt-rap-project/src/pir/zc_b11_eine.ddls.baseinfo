@@ -1,0 +1,14 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_EINE"
+    ],
+    "ASSOCIATED": [
+      "ZC_B11_EINA",
+      "ZR_B11_EINA"
+    ],
+    "BASE": [
+      "ZI_B11_EINE"
+    ]
+  }
+}

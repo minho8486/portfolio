@@ -1,0 +1,86 @@
+@Metadata.layer: #CUSTOMER
+annotate entity zc_b11_ekpo
+    with 
+{
+    @UI.facet: [
+        {
+          id: 'POItemDetail',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'POItemDetail',
+          label: 'Purchase Order Item Info',
+          position: 10
+        },
+        
+        {
+          id: 'MaterialDetail',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'MaterialDetail',
+          label: 'Material Info',
+          position: 20
+        }
+    ]
+    
+    //PO Item
+    @UI: {
+      identification: [{ qualifier : 'POItemDetail', position:10, importance: #HIGH }]
+    }
+    Ebelp;
+    
+    @UI: {
+      identification: [{ qualifier : 'POItemDetail', position:20, importance: #HIGH }]
+    }
+    Werks;
+    
+    @UI: {
+      identification: [{ qualifier : 'POItemDetail', position:30, importance: #HIGH }]
+    }
+    Lgort;
+    
+    @UI: {
+      identification: [{ qualifier : 'POItemDetail', position:40, importance: #HIGH }]
+    }
+    Elikz;
+    
+    @UI: {
+      identification: [{ qualifier : 'POItemDetail', position:50, importance: #HIGH }]
+    }
+    Erekz;
+    
+    @UI: {
+      identification: [{ qualifier : 'POItemDetail', position:60, importance: #HIGH }]
+    }
+    Loekz;
+    
+    //Metarial
+    @UI: {
+      identification: [{ qualifier : 'MaterialDetail', position:10, importance: #HIGH }]
+    }
+    Infnr;
+    
+    @UI: {
+      identification: [{ qualifier : 'MaterialDetail', position:20, importance: #HIGH }]
+    }
+    Matnr;
+    
+    @UI: {
+      identification: [{ qualifier : 'MaterialDetail', position:30, importance: #HIGH, label: 'Material Name' }]
+    }
+    Txz01;
+    
+    @UI: {
+      identification: [{ qualifier : 'MaterialDetail', position:40, importance: #HIGH }]
+    }
+    Mtart;
+    
+    @UI: {
+      identification: [{ qualifier : 'MaterialDetail', position:50, importance: #HIGH }]
+    }
+    Menge;
+    
+    @UI: {
+      identification: [{ qualifier : 'MaterialDetail', position:60, importance: #HIGH }]
+    }
+    Netpr;
+}

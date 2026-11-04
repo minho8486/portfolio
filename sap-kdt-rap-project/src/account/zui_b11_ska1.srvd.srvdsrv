@@ -1,0 +1,5 @@
+@EndUserText.label: '[B11] 계정마스터 Service Definition'
+define service Zui_b11_ska1 {
+  expose zc_b11_ska1;
+  expose zc_b11_ska1text;
+}

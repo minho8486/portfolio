@@ -1,0 +1,35 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'Language',
+        typeNamePlural: 'Account Name',
+        title: { value: 'Spras' },
+        description: { value: 'Txt20' }
+    }
+}
+annotate entity zc_b11_ska1text with
+{
+  @UI.facet: [
+  {
+    id: 'AccountNameList',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Account Name',
+    position: 10
+  }
+  ]
+
+  @UI: {  lineItem: [ { position: 20, importance: #HIGH, label: 'Language'  } ],
+      identification: [{ position: 20, importance: #HIGH, label: 'Language' }]
+   }
+  Spras;
+
+  @UI: {  lineItem: [ { position: 10, importance: #HIGH, label: 'Account Name' } ],
+          identification: [{ position: 10, importance: #HIGH, label: 'Account Name' }]
+       }
+  Txt20;
+
+  @UI: { hidden: true }
+  SakUuid;
+
+}

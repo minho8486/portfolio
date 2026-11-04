@@ -1,0 +1,10 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZTB11MKPF"
+    ],
+    "ASSOCIATED": [
+      "ZI_B11_MSEG"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_GLACT_F4",
+      "ZI_B11_SAKNR_F4"
+    ],
+    "ASSOCIATED": [
+      "ZI_B11_GLACT_F4"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: '[B11] 자재 Service Definition'
+define service Zui_b11_mara {
+  expose zc_b11_mara;
+  expose zc_b11_maratext;
+}

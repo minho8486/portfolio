@@ -8,13 +8,14 @@ SAP S/4HANA 구축 프로젝트에서 MM 모듈(재고·자재·출고)을 개�
 | 프로젝트 | 기간 | 역할 | 기술 |
 |---|---|---|---|
 | [F&B 기업 SAP S/4HANA 구축 – MM 재고·출고](sap-code-s4hana-project/) | 2026.03 ~ 2026.07 | MM 개발, 부PM | Classic ABAP, Module Pool, ALV, Batch, Gateway(OData), SAPUI5 |
-| S-Mobile RAP 기반 S/4HANA 전환 프로젝트 *(정리 예정)* | 2026.07 ~ 2026.09 | ERD 설계, BO 개발 | ABAP Cloud, RAP, CDS View, SAP BTP |
+| [S-Mobile RAP 기반 S/4HANA 전환 – MM 구매·입고](sap-kdt-rap-project/) | 2026.07 ~ 2026.09 | ERD 설계, BO 7개 개발 | ABAP Cloud, RAP(Draft), CDS View, OData V4, SAP BTP |
 
 ### 대표 구현
 - **출고 유형별 연계 처리**: 생산·판매·창고이동 출고를 하나의 처리 단위로 등록하고, 오더 상태 변경과 재고 차감이 모두 성공할 때만 `COMMIT` 합니다.
 - **선입선출 배치 자동 선택**: 생산일자순으로 배치를 고르고, 품질 불합격·관리종료 배치는 제외합니다.
 - **품질상태 업데이트 배치**: 품질보증기간이 지난 배치를 폐기 상태로 바꾸고, 해당 재고를 폐기 창고로 옮깁니다.
 - **재고 조정 (UI5 + OData)**: 재고 실사 결과를 증가·감소로 반영하고, 재고 변경과 입출고 문서 생성을 한 처리 단위로 묶었습니다.
+- **RAP 구매–입고 연계**: UUID 기술키와 Number Range 업무 번호를 분리하고, 입고 저장 시 구매오더 품목을 Action으로 입고완료 처리했습니다.
 - **트러블슈팅**: 다품목 출고 시 재고 값이 덮어써지는 오류를 디버깅으로 찾아 수정했고, 교차 테스트에서 정합성 오류 0건을 확인했습니다.
 
 ## Education

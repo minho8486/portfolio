@@ -1,0 +1,41 @@
+@Metadata.layer: #CUSTOMER
+annotate entity zc_b11_ska1
+    with 
+{
+    @UI.facet: [
+      {
+          id: 'AccountDetail',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'AccountDetail',
+          label: 'Account Info',
+          position: 10
+      },
+
+      {
+          id: 'AccountNameList',
+          purpose: #STANDARD,
+          type: #LINEITEM_REFERENCE,
+          targetElement: '_AccountText',
+          label: 'Account Text',
+          position: 20
+      }
+  ]
+
+  /// Account
+  @UI: {
+    identification: [{ qualifier : 'AccountDetail', position:10, importance: #HIGH, label: 'Account'  }]
+  }
+  Saknr;
+
+  @UI: {
+    identification: [{ qualifier : 'AccountDetail', position:20, importance: #HIGH, label: 'Account Type' }]
+  }
+  Glact;
+  
+  @UI: {
+    identification: [{ qualifier : 'AccountDetail', position:30, importance: #HIGH }]
+  }
+  Xloev;
+    
+}

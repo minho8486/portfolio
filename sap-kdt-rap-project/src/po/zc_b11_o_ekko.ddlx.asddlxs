@@ -1,0 +1,69 @@
+@Metadata.layer: #CUSTOMER
+annotate entity zc_b11_ekko with
+{
+  @UI.facet: [
+      {
+          id: 'PODetail',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'PODetail',
+          label: 'Purchase Order Info',
+          position: 10
+      },
+
+      {
+          id: 'VendorDetail',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'VendorDetail',
+          label: 'Vendor Info',
+          position: 20
+      },
+
+      {
+          id: 'PurchaseItemList',
+          purpose: #STANDARD,
+          type: #LINEITEM_REFERENCE,
+          targetElement: '_POItem',
+          label: 'Purchase Order Item',
+          position: 30
+      }
+  ]
+
+  //PO Header
+  @UI: {
+    identification: [{ qualifier : 'PODetail', position:10, importance: #HIGH }]
+  }
+  Bedat;
+
+  @UI: {
+    identification: [{ qualifier : 'PODetail', position:20, importance: #HIGH }]
+  }
+  Ebeln;
+
+  @UI: {
+    identification: [{ qualifier : 'PODetail', position:30, importance: #HIGH, label: 'Purchase Desc'}]
+  }
+  Podesc;
+
+  @UI: {
+    identification: [{ qualifier : 'PODetail', position:40, importance: #HIGH }]
+  }
+  Waers;
+
+  @UI: {
+    identification: [{ qualifier : 'PODetail', position:50, importance: #HIGH }]
+  }
+  Loekz;
+
+  //Vendor
+  @UI: {
+    identification: [{ qualifier : 'VendorDetail', position:10, importance: #HIGH }]
+  }
+  Lifnr;
+
+  @UI: {
+    identification: [{ qualifier : 'VendorDetail', position:20, importance: #HIGH, label: 'Vendor Name' }]
+  }
+  VendorName;
+}

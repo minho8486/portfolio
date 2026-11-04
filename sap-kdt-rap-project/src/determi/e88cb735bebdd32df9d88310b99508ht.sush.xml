@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SUSH" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <HEAD>
+    <NAME>E88CB735BEBDD32DF9D88310B99508</NAME>
+    <TYPE>HT</TYPE>
+    <DISPLAY_NAME>R3TR IWSV ZUI_B11_T030_V2                    0001</DISPLAY_NAME>
+   </HEAD>
+   <USOBX>
+    <USOBX>
+     <NAME>E88CB735BEBDD32DF9D88310B99508</NAME>
+     <TYPE>HT</TYPE>
+     <OBJECT>S_SERVICE</OBJECT>
+     <OKFLAG>X</OKFLAG>
+    </USOBX>
+   </USOBX>
+   <USOBHASH>
+    <PGMID>R3TR</PGMID>
+    <OBJECT>IWSV</OBJECT>
+    <OBJ_NAME>ZUI_B11_T030_V2                    0001</OBJ_NAME>
+   </USOBHASH>
+  </asx:values>
+ </asx:abap>
+</abapGit>

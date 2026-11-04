@@ -1,0 +1,56 @@
+@Metadata.layer: #CUSTOMER
+annotate entity zc_b11_mkpf with
+{
+  @UI.facet: [
+  {
+      id: 'GRInfo',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GRInfo',
+      label: 'Goods Receipt Info',
+      position: 10
+  },
+
+
+  {
+      id: 'GRItem',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_GRItem',
+      label: 'Goods Receipt Item',
+      position: 20
+  }
+  ]
+
+  /// GR
+  @UI: {
+    identification: [{ qualifier : 'GRInfo', position:10, importance: #HIGH}]
+  }
+  Mjahr;
+
+  @UI: {
+    identification: [{ qualifier : 'GRInfo', position:20, importance: #HIGH}]
+  }
+  Mblnr;
+
+  @UI: {
+    identification: [{ qualifier : 'GRInfo', position:30, importance: #HIGH}]
+  }
+  Bldat;
+
+  @UI: {
+    identification: [{ qualifier : 'GRInfo', position:40, importance: #HIGH}]
+  }
+  Budat;
+
+  @UI: {
+    identification: [{ qualifier : 'GRInfo', position:50, importance: #HIGH}]
+  }
+  Cpudt;
+
+  @UI: {
+    identification: [{ qualifier : 'GRInfo', position:60, importance: #HIGH, label : 'Order Description'}]
+  }
+  Bktxt;
+
+}

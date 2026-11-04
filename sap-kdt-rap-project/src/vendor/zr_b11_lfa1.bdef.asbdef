@@ -1,0 +1,60 @@
+managed implementation in class zbp_r_b11_lfa1 unique;
+strict ( 2 );
+with draft;
+
+define behavior for zr_b11_lfa1 alias Vendor
+persistent table ztb11lfa1
+draft table ztb11lfa1_d
+lock master
+total etag ChangedAt
+authorization master ( instance )
+etag master ChangedAt
+{
+  create;
+  update;
+  delete ( features : instance );
+
+  side effects
+  {
+    action SetDelation affects field Loevm, permissions ( action SetDelation );
+    field Saknr affects field AkontUuid;
+  }
+
+  field ( numbering : managed, readonly ) LifUuid;
+  field ( readonly ) Glact, Lifnr;
+  field ( mandatory : create ) Fdgrv;
+  field ( features : instance ) Waers, Fdgrv, Loevm;
+
+  action ( features : instance ) SetDelation;
+
+  validation CheckRequired on save { create; update; field Fdgrv, Name1; }
+  validation CheckAccount on save { create; update; field Saknr; }
+  validation CheckFdgrv on save { create; update; field Fdgrv; }
+  validation CheckMinbw on save { create; update; field Minbw; }
+
+  determination SetCurrency on modify { create; }
+  determination SetLifnr on save { create; }
+  determination ClearSakUuid on save { create; field AkontUuid; }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation CheckRequired;
+    validation CheckAccount;
+    validation CheckFdgrv;
+    validation CheckMinbw;
+  }
+
+  mapping for ztb11lfa1 corresponding
+    {
+      LifUuid   = lif_uuid;
+      AkontUuid = akont_uuid;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      ChangedBy = changed_by;
+      ChangedAt = changed_at;
+    }
+}

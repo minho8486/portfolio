@@ -1,0 +1,14 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "I_MATERIALTYPE",
+      "I_MATERIALTYPETEXT"
+    ],
+    "ASSOCIATED": [
+      "I_MATERIALTYPETEXT"
+    ],
+    "BASE": [
+      "I_MATERIALTYPE"
+    ]
+  }
+}

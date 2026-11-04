@@ -1,0 +1,14 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_MARATEXT"
+    ],
+    "ASSOCIATED": [
+      "ZC_B11_MARA",
+      "ZR_B11_MARA"
+    ],
+    "BASE": [
+      "ZI_B11_MARATEXT"
+    ]
+  }
+}

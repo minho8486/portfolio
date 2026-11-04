@@ -1,0 +1,122 @@
+managed implementation in class zbp_r_b11_ekko unique;
+strict ( 2 );
+with draft;
+
+define behavior for zr_b11_ekko alias POHeader
+persistent table ztb11ekko
+draft table ztb11ekko_d
+lock master
+total etag ChangedAt
+authorization master ( instance )
+etag master LocChangedAt
+{
+  create;
+  update;
+  delete ( features : instance );
+  association _POItem { create; with draft; }
+
+  side effects
+  {
+    action SetBlocked affects $self;
+    field Lifnr affects field LifUuid;
+  }
+
+  field ( numbering : managed, readonly ) EbelnUuid;
+  field ( readonly ) VendorName, Waers, Ebeln;
+  field ( features : instance ) Loekz;
+  field ( mandatory : create ) Lifnr;
+
+  action ( features : instance ) SetBlocked;
+
+  validation CheckLifnr on save { create; update; field LifUuid; }
+  validation CheckBedat on save { create; update; field Bedat; }
+
+  determination SetEbeln on save { create; }
+  determination SetBedat on modify { create; }
+  determination SetWaers on modify { create; }
+  determination ClearLifUuid on modify { create; field Lifnr; }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation CheckLifnr;
+    validation CheckBedat;
+  }
+
+  mapping for ztb11ekko corresponding
+    {
+      EbelnUuid    = ebeln_uuid;
+      LifUuid      = lif_uuid;
+      CreatedBy    = created_by;
+      CreatedAt    = created_at;
+      ChangedBy    = changed_by;
+      ChangedAt    = changed_at;
+      LocChangedAt = loc_changed_at;
+    }
+
+}
+
+define behavior for zi_b11_ekpo alias POItem
+persistent table ztb11ekpo
+draft table ztb11ekpo_d
+lock dependent by _POHeader
+authorization dependent by _POHeader
+early numbering
+{
+  update;
+  delete ( features : instance );
+  association _POHeader { with draft; }
+
+  side effects
+  {
+    action SetBlocked affects
+    $self;
+
+    field Infnr affects
+    field Matnr,
+    field Mtart,
+    field Werks,
+    field Meins,
+    field Netpr,
+    field Menge,
+    permissions ( field Matnr ),
+    permissions ( field Werks ),
+    permissions ( field Meins ),
+    permissions ( field Netpr );
+
+    field Matnr affects field MatUuid, field Mtart;
+  }
+
+  field ( readonly ) EbelnUuid, Txz01, Ebelp, Elikz, Erekz, Loekz, Mtart;
+  field ( features : instance ) Waers, Meins, Matnr, Werks, Netpr;
+
+  action ( features : instance ) SetBlocked;
+  action SetGrComplete;
+
+  validation CheckPlantStorage on save { create; update; field Werks, Lgort; }
+  validation CheckMaterial on save { create; update; field Matnr; }
+  validation CheckPIR on save { create; update; field Infnr; }
+  validation CheckNetpr on save { create; update; field Netpr; }
+  validation CheckMenge on save { create; update; field Menge; }
+
+  determination SetVendor on modify { create; }
+  determination SetWaers on modify { create; }
+  determination SetPIRInfo on modify { field InfUuid; }
+  determination SetMaterialName on modify { create; field MatUuid; }
+  determination ClearPIRInfo on modify { field Infnr; }
+  determination ClearMatUuid on modify { field Matnr; }
+
+  mapping for ztb11ekpo corresponding
+    {
+      EbelnUuid = ebeln_uuid;
+      MatUuid   = mat_uuid;
+      InfUuid   = inf_uuid;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      ChangedBy = changed_by;
+      ChangedAt = changed_at;
+    }
+}

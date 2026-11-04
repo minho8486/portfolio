@@ -1,0 +1,49 @@
+@Metadata.layer: #CUSTOMER
+annotate entity zc_b11_eine with
+{
+    @UI.facet: [
+        {
+             id: 'ItemDetail',
+             purpose: #STANDARD,
+             type: #IDENTIFICATION_REFERENCE,
+             targetQualifier: 'ItemDetail',
+             label: 'Purchase Info Item',
+             position: 10
+        }
+    ]
+  
+  //PIR Item
+  @UI: {
+      identification: [{ qualifier: 'ItemDetail', position: 10, importance: #HIGH }]
+  }
+  Werks;
+  @UI: {
+      identification: [{ qualifier: 'ItemDetail', position: 20, importance: #HIGH, label: 'Plant Name' }]
+  }
+  PlantName;
+  @UI: {
+      identification: [{ qualifier: 'ItemDetail', position: 30, importance: #HIGH }]
+  }
+  Netpr;
+  @UI: {
+      identification: [{ qualifier: 'ItemDetail', position: 40, importance: #HIGH }]
+  }
+  Bstma;
+  @UI: {
+      identification: [{ qualifier: 'ItemDetail', position: 50, importance: #HIGH }]
+  }
+  Minbm;
+  @UI: {
+      identification: [{ qualifier: 'ItemDetail', position: 60, importance: #HIGH }]
+  }
+  Aplfz;
+  @UI: {
+      identification: [{ qualifier: 'ItemDetail', position: 70, importance: #HIGH }]
+  }
+  Prdat;
+  @UI: {
+      identification: [{ qualifier: 'ItemDetail', position: 80, importance: #HIGH }]
+  }
+  Loekz;
+
+}

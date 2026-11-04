@@ -1,0 +1,5 @@
+@EndUserText.label: '[B11] 구매정보 레코드 Service Definition'
+define service Zui_b11_eina {
+  expose zc_b11_eina;
+  expose zc_b11_eine;
+}

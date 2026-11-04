@@ -1,0 +1,5 @@
+@EndUserText.label: '[B11] 입고 Service Definition'
+define service Zui_b11_mkpf {
+  expose zc_b11_mkpf;
+  expose zc_b11_mseg;
+}

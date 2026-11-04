@@ -1,0 +1,8 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_EINE",
+      "ZR_B11_EINA"
+    ]
+  }
+}

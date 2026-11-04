@@ -1,0 +1,14 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_SKA1TEXT"
+    ],
+    "ASSOCIATED": [
+      "ZC_B11_SKA1",
+      "ZR_B11_SKA1"
+    ],
+    "BASE": [
+      "ZI_B11_SKA1TEXT"
+    ]
+  }
+}

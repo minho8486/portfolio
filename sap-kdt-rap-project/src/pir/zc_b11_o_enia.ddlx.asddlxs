@@ -1,0 +1,76 @@
+@Metadata.layer: #CUSTOMER
+annotate entity zc_b11_eina with
+{
+  @UI.facet: [
+      {
+          id: 'PIRDetail',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'PIRDetail',
+          label: 'Purchase Info Detail',
+          position: 10
+      },
+      {
+          id: 'VendorDetail',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'VendorDetail',
+          label: 'Vendor Detail',
+          position: 20
+      },
+      {
+          id: 'MaterialDetail',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'MaterialDetail',
+          label: 'Material Detail',
+          position: 30
+      },
+      {
+          id: 'PIRItemList',
+          purpose: #STANDARD,
+          type: #LINEITEM_REFERENCE,
+          targetElement: '_PIRItem',
+          label: 'Item List',
+          position: 40
+      }
+  ]
+
+  //PIR
+  @UI: {
+      identification: [{ qualifier: 'PIRDetail', position: 10, importance: #HIGH }]
+  }
+  Infnr;
+  @UI: {
+      identification: [{ qualifier: 'PIRDetail', position: 20, importance: #HIGH, label: 'PIR Info Text' }]
+  }
+  InfoText;
+  @UI: {
+      identification: [{ qualifier: 'PIRDetail', position: 30, importance: #HIGH }]
+  }
+  Meins;
+  @UI: {
+      identification: [{ qualifier: 'PIRDetail', position: 40, importance: #HIGH }]
+  }
+  Loekz;
+
+  //Vendor
+  @UI: {
+      identification: [{ qualifier: 'VendorDetail', position: 10, importance: #HIGH }]
+  }
+  Lifnr;
+  @UI: {
+      identification: [{ qualifier: 'VendorDetail', position: 20, importance: #HIGH, label: 'Vendor Name' }]
+  }
+  Name1;
+
+  //Material
+  @UI: {
+      identification: [{ qualifier: 'MaterialDetail', position: 10, importance: #HIGH }]
+  }
+  Matnr;
+  @UI: {
+      identification: [{ qualifier: 'MaterialDetail', position: 20, importance: #HIGH }]
+  }
+  Maktx;
+}

@@ -1,0 +1,113 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  headerInfo: {
+    typeName: 'Goods Receipt Item',
+    typeNamePlural: 'Goods Receipt Item List',
+    title: { value: 'Zeile' },
+    description: { value: 'Matnr' }
+  }
+}
+
+annotate entity zc_b11_mseg with
+{
+  @UI.facet: [
+    {
+      id: 'POInfo',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'POInfo',
+      label: 'Purchase Order Info',
+      position: 10
+    },
+    {
+      id: 'GRItemInfo',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GRItemInfo',
+      label: 'Goods Receipt Item Info',
+      position: 20
+    }
+  ]
+
+  // Purchase Order Info
+  @UI.identification: [{ qualifier: 'POInfo', position: 10, importance: #HIGH }]
+  Lifnr;
+
+  @UI.identification: [{ qualifier: 'POInfo', position: 20, importance: #HIGH, label: 'Vendor Name' }]
+  VendorName;
+
+  @UI.identification: [{ qualifier: 'POInfo', position: 30, importance: #HIGH }]
+  Ebeln;
+
+  @UI.identification: [{ qualifier: 'POInfo', position: 40, importance: #HIGH }]
+  Ebelp;
+
+  @UI.identification: [{ qualifier: 'POInfo', position: 50, importance: #HIGH, label: 'Purchase Order Description' }]
+  Podesc;
+
+
+  // Goods Receipt Item Info
+  @UI: {
+    lineItem: [{ position: 10, importance: #HIGH }],
+    identification: [{ qualifier: 'GRItemInfo', position: 10, importance: #HIGH }]
+  }
+  Zeile;
+
+  @UI.identification: [{ qualifier: 'GRItemInfo', position: 20, importance: #HIGH, label: 'Item Text' }]
+  Sgtxt;
+
+  @UI.identification: [{ qualifier: 'GRItemInfo', position: 30, importance: #HIGH }]
+  Bwart;
+
+  @UI: {
+    lineItem: [{ position: 70, importance: #LOW }],
+    identification: [{ qualifier: 'GRItemInfo', position: 40, importance: #HIGH }]
+  }
+  Insmk;
+
+  @UI: {
+    lineItem: [{ position: 20, importance: #HIGH }],
+    identification: [{ qualifier: 'GRItemInfo', position: 50, importance: #HIGH }]
+  }
+  Werks;
+
+  @UI.identification: [{ qualifier: 'GRItemInfo', position: 60, importance: #HIGH }]
+  Lgort;
+
+  @UI: {
+    lineItem: [{ position: 30, importance: #HIGH }],
+    identification: [{ qualifier: 'GRItemInfo', position: 70, importance: #HIGH }]
+  }
+  Matnr;
+
+  @UI.identification: [{ qualifier: 'GRItemInfo', position: 80, importance: #HIGH, label: 'Material Name' }]
+  Txz01;
+
+  @UI: {
+    lineItem: [{ position: 40, importance: #HIGH }],
+    identification: [{ qualifier: 'GRItemInfo', position: 90, importance: #HIGH }]
+  }
+  Menge;
+
+  @UI: {
+    lineItem: [{ position: 50, importance: #HIGH }],
+    identification: [{ qualifier: 'GRItemInfo', position: 100, importance: #HIGH }]
+  }
+  Dmbtr;
+
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  Waers;
+
+  @UI.hidden: true
+  EbelnUuid;
+
+  @UI.hidden: true
+  MatUuid;
+
+  @UI.hidden: true
+  LifUuid;
+
+  @UI.hidden: true
+  InfUuid;
+}

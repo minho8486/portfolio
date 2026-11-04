@@ -1,0 +1,11 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_BTEXT",
+      "T156"
+    ],
+    "ASSOCIATED": [
+      "ZI_B11_BTEXT"
+    ]
+  }
+}

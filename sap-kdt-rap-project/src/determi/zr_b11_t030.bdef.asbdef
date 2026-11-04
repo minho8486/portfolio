@@ -1,0 +1,44 @@
+managed implementation in class zbp_r_b11_t030 unique;
+strict ( 2 );
+
+define behavior for zr_b11_t030 alias Determine
+persistent table ztb11t030
+lock master
+authorization master ( instance )
+etag master ChangedAt
+late numbering
+{
+  create;
+  update;
+  delete ( features : instance );
+
+  side effects
+  {
+    action SetRemoved affects field Loekz, permissions ( action SetRemoved );
+    field Account affects field Saknr;
+  }
+
+  field ( readonly ) Glact, Seqnr;
+  field ( readonly : update ) Bwart, Ktosl, Bklas;
+  field ( mandatory : create ) Ktosl, Account, Bklas;
+  field ( features : instance ) Loekz;
+
+  action ( features : instance ) SetRemoved;
+
+  validation CheckSaknr on save { create; field Saknr; }
+  validation CheckBklas on save { create; field Bklas; }
+  validation CheckDetermine on save { create; field Bwart, Bklas, Ktosl; }
+  validation CheckShkzg on save { create; update; field Shkzg; }
+  validation CheckKtosl on save { create; update; field Ktosl; }
+  validation CheckBwart on save { create; update; field Bwart; }
+
+  determination ClearSakUuid on save { create; field Account; }
+
+  mapping for ztb11t030 corresponding
+    {
+      CreatedAt = created_at;
+      CreatedBy = created_by;
+      ChangedAt = changed_at;
+      ChangedBy = changed_by;
+    }
+}

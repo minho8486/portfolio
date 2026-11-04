@@ -1,0 +1,99 @@
+@Metadata.layer: #CUSTOMER
+annotate entity zc_b11_mara with
+{
+  @UI.facet: [
+    {
+        id: 'PlantDetail',
+        purpose: #STANDARD,
+        type: #IDENTIFICATION_REFERENCE,
+        targetQualifier: 'PlantDetail',
+        label: 'Plant Info',
+        position: 10
+    },
+
+    {
+        id: 'MaterialDetail',
+        purpose: #STANDARD,
+        type: #IDENTIFICATION_REFERENCE,
+        targetQualifier: 'MaterialDetail',
+        label: 'Material Detail Info ',
+        position: 20
+    },
+
+    {
+        id: 'PriceDetail',
+        purpose: #STANDARD,
+        type: #IDENTIFICATION_REFERENCE,
+        targetQualifier: 'PriceDetail',
+        label: 'Price Info ',
+        position: 30
+    },
+
+    {
+        id: 'MaterialNameList',
+        purpose: #STANDARD,
+        type: #LINEITEM_REFERENCE,
+        targetElement: '_MaraText',
+        label: 'Material Text',
+        position: 40
+    }
+  ]
+
+  /// Plant
+  @UI: {
+    identification: [{ qualifier : 'PlantDetail', position:10, importance: #HIGH, label: 'Plant'  }]
+  }
+  Werks;
+
+  @UI: {
+    identification: [{ qualifier : 'PlantDetail', position:20, importance: #HIGH, label: 'Storage' }]
+  }
+  Lgort;
+  @UI: {
+    identification: [{ qualifier : 'PlantDetail', position:30, importance: #HIGH }]
+  }
+  lvorm;
+
+
+  /// Material Detail
+
+
+  @UI: {
+    identification: [{ qualifier : 'MaterialDetail', position:10, importance: #HIGH, label: 'Material Type'  }]
+  }
+  Mtart;
+
+  @UI: {
+    identification: [{ qualifier : 'MaterialDetail', position:20, importance: #HIGH, label: 'Material' }]
+  }
+  Matnr;
+
+  @UI: {
+    identification: [{ qualifier : 'MaterialDetail', position:30, importance: #HIGH, label: 'Creation Date'  }]
+  }
+  Ersda;
+
+
+
+  /// Price
+  @UI: {
+  identification: [{ qualifier : 'PriceDetail', position:10, importance: #HIGH, label: 'Valuation Class'  }]
+  }
+  Bklas;
+
+  @UI: {
+  identification: [{ qualifier : 'PriceDetail', position:20, importance: #HIGH, label: 'Base Unit'  }]
+  }
+  Meins;
+
+  @UI: {
+  identification: [{ qualifier : 'PriceDetail', position:30, importance: #HIGH, label: 'Standard Price'  }]
+  }
+  Stprs;
+
+  @UI: {
+  identification: [{ qualifier : 'PriceDetail', position:40, importance: #HIGH, label: 'Price Unit'  }]
+  }
+  Peinh;
+
+}

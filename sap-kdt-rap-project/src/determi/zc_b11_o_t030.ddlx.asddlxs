@@ -1,0 +1,69 @@
+@Metadata.layer: #CUSTOMER
+annotate entity zc_b11_t030
+    with 
+{
+    @UI.facet: [
+      {
+          id: 'Determination',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'Determination',
+          label: 'Determination Info',
+          position: 10
+      },
+
+      {
+          id: 'Account',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          targetQualifier: 'Account',
+          label: 'Account Info',
+          position: 20
+      }
+  ]
+
+  /// Determination
+  @UI: {
+    identification: [{ qualifier : 'Determination', position:10, importance: #HIGH }]
+  }
+  Bwart;
+
+  @UI: {
+    identification: [{ qualifier : 'Determination', position:20, importance: #HIGH, label: 'Sequence' }]
+  }
+  Seqnr;
+
+  @UI: {
+    identification: [{ qualifier : 'Determination', position:30, importance: #HIGH }]
+  }
+  Ktosl;
+
+  @UI: {
+    identification: [{ qualifier : 'Determination', position:40, importance: #HIGH }]
+  }
+  Bklas;
+  @UI: {
+    identification: [{ qualifier : 'Determination', position:40, importance: #HIGH }]
+  }
+  Loekz;
+
+
+  /// Account
+
+  @UI: {
+   identification: [{ qualifier : 'Account', position:10, importance: #HIGH  }]
+  }
+  Glact;
+
+
+  @UI: {
+   identification: [{ qualifier : 'Account', position:20, importance: #HIGH, label: 'G/L Account'  }]
+  }
+  Account;
+
+  @UI: {
+   identification: [{ qualifier : 'Account', position:30, importance: #HIGH, label: 'Debit/Credit'  }]
+  }
+  Shkzg;
+    
+}

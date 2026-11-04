@@ -1,0 +1,54 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'ACDT',
+        typeNamePlural: 'Rule List',
+        title: { value: 'TransactionText' },
+        description: { value: 'ClassText' }
+    },
+    presentationVariant: [{
+        sortOrder: [
+            { by: 'Bwart', direction: #ASC },
+            { by: 'Seqnr', direction: #ASC }
+        ],
+        visualizations: [
+            { type: #AS_LINEITEM }
+        ]
+    }]
+}
+annotate entity zc_b11_t030 with
+{
+  @UI: {   selectionField: [{ element: 'Bwart', position : 10 }],
+         lineItem: [ { position: 10, importance: #HIGH },
+                     { type: #FOR_ACTION, dataAction: 'SetRemoved', label: 'Remove' } ] }
+  Bwart;
+
+  @UI: { lineItem: [ { position: 20, importance: #HIGH, label: 'Sequence' } ] }
+  Seqnr;
+
+  @UI: { selectionField: [{ element: 'Ktosl', position : 30 }],
+         lineItem: [ { position: 30, importance: #HIGH } ] }
+  Ktosl;
+
+  @UI: { selectionField: [{ element: 'Bklas', position : 20 }],
+        lineItem: [ { position: 40, importance: #HIGH }] }
+  Bklas;
+
+  @UI: { lineItem: [ { position: 50, importance: #HIGH, label: 'G/L Account' } ] }
+  Account;
+
+  @UI: { lineItem: [ { position: 60, importance: #HIGH } ] }
+  Loekz;
+
+  @UI: { hidden: true }
+  Saknr;
+  @UI: { hidden: true }
+  CreatedBy;
+  @UI: { hidden: true }
+  CreatedAt;
+  @UI: { hidden: true }
+  ChangedBy;
+  @UI: { hidden: true }
+  ChangedAt;
+
+}

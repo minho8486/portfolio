@@ -1,0 +1,15 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_MARATEXT",
+      "ZR_B11_LFA1",
+      "ZR_B11_MARA",
+      "ZTB11EINA"
+    ],
+    "ASSOCIATED": [
+      "ZI_B11_EINE",
+      "ZR_B11_LFA1",
+      "ZR_B11_MARA"
+    ]
+  }
+}

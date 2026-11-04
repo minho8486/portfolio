@@ -1,0 +1,22 @@
+projection;
+strict ( 2 );
+use side effects;
+
+define behavior for zc_b11_ska1 //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action SetRemoved;
+
+  use association _AccountText { create; }
+}
+
+define behavior for zc_b11_ska1text //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _Account;
+}

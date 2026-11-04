@@ -1,0 +1,32 @@
+projection;
+strict ( 2 );
+use draft;
+use side effects;
+
+define behavior for zc_b11_ekko //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action SetBlocked;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _POItem { create; with draft; }
+}
+
+define behavior for zc_b11_ekpo //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use action SetBlocked;
+  use action SetGrComplete;
+
+  use association _POHeader { with draft; }
+}

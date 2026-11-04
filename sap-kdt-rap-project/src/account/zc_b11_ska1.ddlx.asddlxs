@@ -1,0 +1,44 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'Account',
+        typeNamePlural: 'Account List',
+        title: { value: 'Saknr' },
+        description: { value: 'Txt20' }
+    },
+    presentationVariant: [{
+        sortOrder: [
+            { by: 'Glact', direction: #ASC },
+            { by: 'Saknr', direction: #ASC }
+        ],
+        visualizations: [
+            { type: #AS_LINEITEM }
+        ]
+    }]
+}
+annotate entity zc_b11_ska1 with
+{
+  @UI: {   selectionField: [{ element: 'Glact', position : 10 }],
+       lineItem: [ { position: 10, importance: #HIGH, label: 'Account Type' },
+                   { type: #FOR_ACTION, dataAction: 'SetRemoved', label: 'Remove' } ] }
+  Glact;
+
+  @UI: { lineItem: [ { position: 20, importance: #HIGH, label: 'Gl Account' } ] }
+  Saknr;
+  
+  @UI: { lineItem: [ { position: 30, importance: #HIGH} ] }
+  Xloev;
+
+
+  @UI: { hidden: true }
+  SakUuid;
+  @UI: { hidden: true }
+  CreatedBy;
+  @UI: { hidden: true }
+  CreatedAt;
+  @UI: { hidden: true }
+  ChangedBy;
+  @UI: { hidden: true }
+  ChangedAt;
+
+}

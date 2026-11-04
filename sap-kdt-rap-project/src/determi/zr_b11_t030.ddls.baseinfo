@@ -1,0 +1,15 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_AKONT_F4",
+      "ZTB11T030"
+    ],
+    "ASSOCIATED": [
+      "ZI_B11_AKONT_F4",
+      "ZI_B11_BKLAS_F4",
+      "ZI_B11_BWART_F4",
+      "ZI_B11_KTOSL_F4",
+      "ZI_B11_SHKZG_F4"
+    ]
+  }
+}

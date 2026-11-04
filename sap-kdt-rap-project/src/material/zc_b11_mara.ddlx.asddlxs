@@ -1,0 +1,58 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'Material',
+        typeNamePlural: 'Material List',
+        title: { value: 'Matnr' },
+        description: { value: 'Matnr' }
+    },
+    presentationVariant: [{
+        sortOrder: [
+            { by: 'Werks', direction: #ASC },
+            { by: 'Ersda', direction: #DESC }
+        ],
+        visualizations: [
+            { type: #AS_LINEITEM }
+        ]
+    }]
+}
+annotate entity zc_b11_mara with
+{
+    
+    @UI: {   selectionField: [{ element: 'Mtart', position : 10 }],
+           lineItem: [ { position: 10, importance: #HIGH, label: 'Material Type' },
+                       { type: #FOR_ACTION, dataAction: 'SetLvorm', label: 'Blocked' } ] }
+    Mtart;
+  
+    @UI: { lineItem: [ { position: 20, importance: #HIGH, label: 'Plant' } ] }
+    Werks;
+  
+    @UI: { lineItem: [ { position: 30, importance: #HIGH, label: 'Storage' } ] }
+    Lgort;
+  
+    @UI: { selectionField: [{ element: 'Matnr', position : 20 }],
+          lineItem: [ { position: 40, importance: #HIGH, label: 'Material Number' } ] }
+    Matnr;
+  
+    @UI: { lineItem: [ { position: 50, importance: #HIGH, label: 'Creation Date' } ] }
+    Ersda;
+    
+    @UI: { lineItem: [ { position: 60, importance: #HIGH } ] }
+    Lvorm;
+    
+    @UI: { hidden: true }
+    MatUuid;
+    @UI: { hidden: true }
+    Matfi;
+  
+    @UI: { hidden: true }
+    CreatedBy;
+    @UI: { hidden: true }
+    CreatedAt;
+    @UI: { hidden: true }
+    ChangedBy;
+    @UI: { hidden: true }
+    ChangedAt;
+    @UI: { hidden: true }
+    LocChangedAt;
+}

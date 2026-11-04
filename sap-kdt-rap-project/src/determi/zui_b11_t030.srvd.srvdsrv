@@ -1,0 +1,4 @@
+@EndUserText.label: '[B11] 회계결정코드 마스터 Service Definition'
+define service Zui_b11_t030 {
+  expose zc_b11_t030;
+}

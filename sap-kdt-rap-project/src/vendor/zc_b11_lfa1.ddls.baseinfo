@@ -1,0 +1,16 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_AKONT_F4",
+      "ZI_B11_FDGRV_F4",
+      "ZR_B11_LFA1"
+    ],
+    "ASSOCIATED": [
+      "ZI_B11_AKONT_F4",
+      "ZI_B11_FDGRV_F4"
+    ],
+    "BASE": [
+      "ZR_B11_LFA1"
+    ]
+  }
+}

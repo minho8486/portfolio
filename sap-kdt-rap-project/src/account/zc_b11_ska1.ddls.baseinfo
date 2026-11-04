@@ -1,0 +1,16 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_GLACT_F4",
+      "ZI_B11_SKA1TEXT",
+      "ZR_B11_SKA1"
+    ],
+    "ASSOCIATED": [
+      "ZC_B11_SKA1TEXT",
+      "ZI_B11_SKA1TEXT"
+    ],
+    "BASE": [
+      "ZR_B11_SKA1"
+    ]
+  }
+}

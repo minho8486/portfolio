@@ -1,0 +1,4 @@
+@EndUserText.label: '[B11] 공급업체 마스터 Service Definition'
+define service Zui_b11_lfa1 {
+  expose zc_b11_lfa1;
+}

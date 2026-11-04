@@ -1,0 +1,36 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'Material Name',
+        typeNamePlural: 'Material Name',
+        title: { value: 'Maktx' },
+        description: { value: 'Maktx' }
+    }
+}
+annotate entity zc_b11_maratext
+    with 
+{
+    @UI.facet: [
+    {
+        id: 'MaterialNameList',
+        purpose: #STANDARD,
+        type: #IDENTIFICATION_REFERENCE,
+        label: 'Material Name',
+        position: 10
+    }
+  ]
+
+  @UI: {  lineItem: [ { position: 10, importance: #HIGH, label: 'Language' } ],
+        identification: [{ position: 10, importance: #HIGH, label: 'Language' }]
+     }
+  Spras;
+
+  @UI: {  lineItem: [ { position: 20, importance: #HIGH, label: 'Material Name' } ],
+          identification: [{ position: 20, importance: #HIGH, label: 'Material Name' }]
+       }
+  Maktx;
+
+  @UI: { hidden: true }
+  MatUuid;
+    
+}

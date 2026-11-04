@@ -1,0 +1,18 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_EKPO",
+      "ZI_B11_LGORT_F4",
+      "ZR_B11_EKKO"
+    ],
+    "ASSOCIATED": [
+      "ZI_B11_LGORT_F4",
+      "ZI_B11_MATNR_F4",
+      "ZI_B11_PIR_F4",
+      "ZR_B11_EKKO"
+    ],
+    "BASE": [
+      "ZI_B11_EKPO"
+    ]
+  }
+}

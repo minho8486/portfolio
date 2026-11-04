@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZMCB11</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>[B11] RAP Message Class</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>자재번호는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>이미 존재하는 자재번호 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>플랜트번호와 저장위치번호는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>없는 플랜트 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>해당 플랜트에 없는 저장위지 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>미래의 날짜는 설정할 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>자재타입은 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>없는 자재타입 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>평가클래스는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>없는 평가클래스 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>계정번호는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>없는 계정타입 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>이미 존재하는 계정번호 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>계정타입은 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>오늘로 부터 30일 이전의 날짜는 등록할 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>해당 언어로 이미 자재명이 등록 되었습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>해당 언어로 이미 계정명이 등록 되었습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>이미 거래중지 된 공급업체 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>거래종료 처리에 실패했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>거래종료 처리되었습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>벤더 그룹은 필수값입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>벤더명은 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>없는 계정입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>없는 공급업체 분류입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>없는 계정 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>이동유형은 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>없는 이동유형 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>회계결정코드는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>없는 회계결정코드 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>없는 차대변코드 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>없는 자재 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>채번에 실패했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>플랜트 번호는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>유효종료일은 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>오늘 이전의 날짜를 유효종료일로 설정할 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>공급업체 번호는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>없는 공급업체 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>이미 취소된 구매정보 레코드 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>구매정보 레코드 취소에 실패했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>구매정보 레코드 취소에 성공했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>이미 사용중단된 레코드입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>자재 사용중단에 실패했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>자재 사용중단에 성공했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>044</MSGNR>
+     <TEXT>계정 사용중단에 실패했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>045</MSGNR>
+     <TEXT>계정 사용중단에 성공했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>046</MSGNR>
+     <TEXT>계정결정 사용중단에 실패했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>047</MSGNR>
+     <TEXT>계정결정 사용중단에 성공했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>048</MSGNR>
+     <TEXT>오늘보다 미래의 날짜는 설정할 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>049</MSGNR>
+     <TEXT>거래중지된 공급업체 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>050</MSGNR>
+     <TEXT>사용중지된 자재 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>051</MSGNR>
+     <TEXT>구매오더 생성일은 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>052</MSGNR>
+     <TEXT>구매정보 레코드와 입력한 공급업체/자재/플랜트가 일치하지 않습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>053</MSGNR>
+     <TEXT>구매오더 취소에 실패했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>054</MSGNR>
+     <TEXT>구매오더 취소에 성공했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>055</MSGNR>
+     <TEXT>구매오더 Item 취소에 실패했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>056</MSGNR>
+     <TEXT>구매오더 Item 취소에 성공했습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>057</MSGNR>
+     <TEXT>사용 중지된 구매정보레코드 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>058</MSGNR>
+     <TEXT>가격은 0보다 작을 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>059</MSGNR>
+     <TEXT>최대 구매 가능 수량보다 클 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>060</MSGNR>
+     <TEXT>최소 구매 가능 수량보다 작을 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>061</MSGNR>
+     <TEXT>수량은 0보다 작을 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>062</MSGNR>
+     <TEXT>사용중지된 계정과목 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>063</MSGNR>
+     <TEXT>의미가 중복되는 레코드 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>064</MSGNR>
+     <TEXT>예정배송일수는 0보다 작을 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>065</MSGNR>
+     <TEXT>최대 구매 수량은 최소 구매 수량 보다 작을 수 없습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>066</MSGNR>
+     <TEXT>증빙일자와 전기일은 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>067</MSGNR>
+     <TEXT>구매오더 번호는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>068</MSGNR>
+     <TEXT>구매오더 아이템 번호는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>069</MSGNR>
+     <TEXT>저장위치는 필수값 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>070</MSGNR>
+     <TEXT>입고수량은 0보다 커야 합니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>071</MSGNR>
+     <TEXT>없는 단위 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>072</MSGNR>
+     <TEXT>없는 재고타입 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>073</MSGNR>
+     <TEXT>없는 구매오더 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>074</MSGNR>
+     <TEXT>없는 구매오더 아이템 입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>075</MSGNR>
+     <TEXT>구매오더의 공급업체와 입력한 공급업체가 일티하지 않습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>076</MSGNR>
+     <TEXT>구매오더 아이템의 자재와 입력한 자재가 일치하지 않습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>077</MSGNR>
+     <TEXT>구매오더 아이템의 플랜트와 입력한 플랜트가 일치하지 않습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>078</MSGNR>
+     <TEXT>구매오더 아이템의 저장위치와 입력한 저장위치가 일치하지 않습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>079</MSGNR>
+     <TEXT>입고 아이템을 하나 이상 등록해야 합니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>080</MSGNR>
+     <TEXT>자재문서연도와 전기일자의 연도가 일치하지 않습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>081</MSGNR>
+     <TEXT>입고 통화는 KRW만 사용할 수 있습니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>082</MSGNR>
+     <TEXT>이미 입고 완료된 구매오더 아이템입니다.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMCB11</ARBGB>
+     <MSGNR>083</MSGNR>
+     <TEXT>삭제된 구매오더 아이템은 입고 처리할 수 없습니다.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

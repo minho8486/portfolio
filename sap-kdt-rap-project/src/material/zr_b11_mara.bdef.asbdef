@@ -1,0 +1,93 @@
+managed implementation in class zbp_r_b11_mara unique;
+strict ( 2 );
+with draft;
+
+define behavior for zr_b11_mara alias Mara
+persistent table ztb11mara
+draft table ztb11mara_d
+lock master
+total etag ChangedAt
+authorization master ( instance )
+etag master LocChangedAt
+{
+  create;
+  update;
+  delete ( features : instance );
+  association _MaraText { create; with draft; }
+
+  side effects
+  {
+    action SetLvorm affects field Lvorm, permissions ( action SetLvorm );
+  }
+
+  field ( numbering : managed, readonly ) MatUuid;
+  field ( mandatory : create ) Mtart, Bklas, Werks, Lgort;
+  field ( features : instance ) Waers, Ersda, Werks, Lgort, Mtart, Bklas, Lvorm;
+  field ( readonly ) Matnr;
+
+  action ( features : instance ) SetLvorm;
+
+  validation CheckMatnr on save { create; field Matnr; }
+  validation CheckMtart on save { create; update; field Mtart; }
+  validation CheckBklas on save { create; update; field Bklas; }
+  validation CheckPlantStorage on save { create; update; field Werks, Lgort; }
+  validation CheckDate on save { create; update; field Ersda; }
+  validation CheckStprs on save { create; update; field Stprs; }
+  validation CheckPeinh on save { create; update; field Peinh; }
+
+  determination SetCreatedDate on modify { create; }
+  determination SetCurrencyCode on modify { create; }
+  determination SetPriceUnit on modify { create; }
+  determination SetBlocked on save { create; }
+  determination SetMatnr on save { create; }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation CheckMatnr;
+    validation CheckMtart;
+    validation CheckBklas;
+    validation CheckPlantStorage;
+    validation CheckDate;
+    validation CheckStprs;
+    validation CheckPeinh;
+  }
+
+  mapping for ztb11mara corresponding
+    {
+      MatUuid      = mat_uuid;
+      CreatedBy    = created_by;
+      CreatedAt    = created_at;
+      ChangedBy    = changed_by;
+      ChangedAt    = changed_at;
+      LocChangedAt = loc_changed_at;
+    }
+
+}
+
+define behavior for ZI_B11_MARATEXT alias MaraText
+persistent table ztb11mara_t
+draft table ztb11mara_t_d
+lock dependent by _Mara
+authorization dependent by _Mara
+//etag master
+{
+  update;
+  delete;
+
+  field ( readonly ) MatUuid;
+  field ( readonly : update ) Spras;
+  field ( mandatory : create ) Spras;
+
+  validation CheckText on save { field MatUuid, Spras; create; }
+
+  association _Mara { with draft; }
+
+  mapping for ztb11mara_t corresponding
+    {
+      MatUuid = mat_uuid;
+    }
+}

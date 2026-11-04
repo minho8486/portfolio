@@ -1,0 +1,150 @@
+managed implementation in class zbp_r_b11_mkpf unique;
+strict ( 2 );
+with draft;
+
+define behavior for zr_b11_mkpf alias GRHeader
+persistent table ztb11mkpf
+draft table ztb11mkpf_d
+lock master
+total etag ChangedAt
+authorization master ( instance )
+etag master LocChangedAt
+{
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  association _GRItem { create; with draft; }
+
+  side effects
+  {
+    field Budat affects field Mjahr;
+  }
+
+  field ( numbering : managed, readonly ) MblnrUuid;
+  field ( readonly ) Cpudt, Mjahr, Mblnr;
+
+  validation CheckDate on save { create; update; field Bldat, Budat; }
+  validation CheckItemExists on save { create; update; }
+  validation CheckYear on save { create; update; field Budat; }
+
+  determination SetYearDate on modify { create; }
+  determination SetYearByBudat on modify { field Budat; }
+  determination NumberingMblnr on save { create; }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation CheckDate;
+    validation CheckItemExists;
+    validation CheckYear;
+  }
+
+  mapping for ztb11mkpf corresponding
+    {
+      MblnrUuid    = mblnr_uuid;
+      CreatedBy    = created_by;
+      CreatedAt    = created_at;
+      ChangedBy    = changed_by;
+      ChangedAt    = changed_at;
+      LocChangedAt = loc_changed_at;
+    }
+}
+
+define behavior for zi_b11_mseg alias GRItem
+persistent table ztb11mseg
+draft table ztb11mseg_d
+lock dependent by _GRHeader
+authorization dependent by _GRHeader
+early numbering
+//etag master <field_name>
+{
+  update ( features : instance );
+  delete ( features : instance );
+  field ( readonly ) MblnrUuid, VendorName, Podesc;
+  association _GRHeader { with draft; }
+
+  side effects
+  {
+    field Ebeln affects
+    field EbelnUuid,
+    field Lifnr,
+    field LifUuid,
+    field VendorName,
+    field Podesc,
+    field Ebelp,
+    field Werks,
+    field Lgort,
+    field Matnr,
+    field MatUuid,
+    field Menge,
+    field Dmbtr,
+    field Meins,
+    field Mtart,
+    permissions (
+    field Lifnr,
+    field Ebelp,
+    field Werks,
+    field Lgort,
+    field Matnr,
+    field Menge,
+    field Dmbtr,
+    field Meins
+    );
+
+    field Ebelp affects
+    field Werks,
+    field Lgort,
+    field Matnr,
+    field Menge,
+    field Dmbtr,
+    field Meins,
+    field MatUuid,
+    field Mtart,
+    permissions
+    (
+    field Werks,
+    field Lgort,
+    field Matnr,
+    field Menge,
+    field Dmbtr,
+    field Meins
+    );
+
+    field Lifnr affects field LifUuid;
+  }
+
+  field ( readonly ) Zeile, Txz01;
+  field ( features : instance ) Waers, Lifnr, Ebeln, Ebelp, Bwart, Werks, Lgort, Matnr, Menge, Dmbtr, Meins;
+
+  validation CheckRequired on save { create; update; field Bwart, Lifnr, Ebeln, Ebelp, Werks, Lgort, Matnr, Menge, Meins; }
+  validation CheckMasterData on save { create; update; field Bwart, Lifnr, Matnr, Werks, Lgort, Meins, Insmk; }
+  validation CheckPoData on save { create; update; field Ebeln, Ebelp, Lifnr, Matnr, Werks, Lgort; }
+  validation CheckQuantityAmount on save { create; update; field Menge, Dmbtr; }
+  validation CheckCurrency on save { create; update; field Waers; }
+  validation CheckPoStatus on save { create; update; }
+
+  determination SetWaers on modify { create; }
+  determination SetBwart on modify { create; }
+  determination SetPoHeader on modify { create; field Ebeln; }
+  determination ClearPoHeader on modify { create; field Ebeln; }
+  determination SetPoItem on modify { create; field Ebelp; }
+  determination ClearPoItem on modify { create; field Ebelp; }
+  determination SetVendorUuid on modify { field Lifnr; }
+  determination UpdatePoStatus on save { create; }
+
+  mapping for ztb11mseg corresponding
+    {
+      MblnrUuid = mblnr_uuid;
+      LifUuid   = lif_uuid;
+      MatUuid   = mat_uuid;
+      InfUuid   = inf_uuid;
+      EbelnUuid = ebeln_uuid;
+      CreatedBy = created_by;
+      CreatedAt = created_at;
+      ChangedBy = changed_by;
+      ChangedAt = changed_at;
+    }
+}

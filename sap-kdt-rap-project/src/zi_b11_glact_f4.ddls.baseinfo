@@ -1,0 +1,13 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "I_DOMAINFIXEDVALUETEXT"
+    ],
+    "ASSOCIATED": [
+      "I_LANGUAGE"
+    ],
+    "BASE": [
+      "I_DOMAINFIXEDVALUETEXT"
+    ]
+  }
+}

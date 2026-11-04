@@ -1,0 +1,46 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+    headerInfo: {
+        typeName: 'PurchaseItem',
+        typeNamePlural: 'Purchase Item List',
+        title: { value: 'Ebelp' },
+        description: { value: 'Matnr' }
+    }
+}
+annotate entity zc_b11_ekpo with
+{
+  @UI: { lineItem: [ { position: 10, importance: #HIGH },
+                     { type: #FOR_ACTION, dataAction: 'SetBlocked', label: 'Blocked' } ] }
+  Ebelp;
+
+  @UI: { lineItem: [ { position: 20, importance: #HIGH } ] }
+  Matnr;
+
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ] }
+  Werks;
+  
+  @UI: { lineItem: [ { position: 40, importance: #HIGH } ] }
+  Lgort;
+
+  @UI: { lineItem: [ { position: 50, importance: #HIGH } ] }
+  Menge;
+  
+  @UI: { lineItem: [ { position: 60, importance: #HIGH } ] }
+  Loekz;
+
+  @UI.hidden: true
+  EbelnUuid;
+  @UI.hidden: true
+  MatUuid;
+  @UI.hidden: true
+  InfUuid;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  ChangedBy;
+  @UI.hidden: true
+  ChangedAt;
+
+}

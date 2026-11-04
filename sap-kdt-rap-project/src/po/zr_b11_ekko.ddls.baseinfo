@@ -1,0 +1,12 @@
+{
+  "BASEINFO": {
+    "FROM": [
+      "ZI_B11_LIFNR_F4",
+      "ZTB11EKKO"
+    ],
+    "ASSOCIATED": [
+      "ZI_B11_EKPO",
+      "ZI_B11_LIFNR_F4"
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+@Metadata.layer: #CUSTOMER
+annotate entity zc_b11_lfa1
+    with 
+{
+    @UI.facet: [
+     {
+         id: 'VendorDetail',
+         purpose: #STANDARD,
+         type: #IDENTIFICATION_REFERENCE,
+         targetQualifier: 'VendorDetail',
+         label: 'Vendor Info',
+         position: 10
+     },
+
+     {
+         id: 'AccountDetail',
+         purpose: #STANDARD,
+         type: #IDENTIFICATION_REFERENCE,
+         targetQualifier: 'AccountDetail',
+         label: 'Account Info',
+         position: 20
+     },
+
+     {
+         id: 'EtcInfo',
+         purpose: #STANDARD,
+         type: #IDENTIFICATION_REFERENCE,
+         targetQualifier: 'EtcInfo',
+         label: 'Etc Info',
+         position: 30
+     }
+  ]
+
+  /// Vendor
+  @UI: {
+    identification: [{ qualifier : 'VendorDetail', position:10, importance: #HIGH }]
+  }
+  Fdgrv;
+
+  @UI: {
+    identification: [{ qualifier : 'VendorDetail', position:20, importance: #HIGH }]
+  }
+  Lifnr;
+
+  @UI: {
+  identification: [{ qualifier : 'VendorDetail', position:30, importance: #HIGH, label: 'Vendor Name' }]
+  }
+  Name1;
+
+
+
+  /// Account
+  @UI: {
+  identification: [{ qualifier : 'AccountDetail', position:10, importance: #HIGH }]
+  }
+  Glact;
+
+  @UI.hidden: true
+  @UI: {
+    identification: [{ qualifier : 'AccountDetail', position:20, importance: #HIGH }]
+  }
+  AkontUuid;
+
+  @UI: {
+    identification: [{ qualifier : 'AccountDetail', position:30, importance: #HIGH, label: 'G/L Account' }]
+  }
+  Saknr;
+
+
+  /// ETC
+  @UI: {
+    identification: [{ qualifier : 'EtcInfo', position:10, importance: #HIGH }]
+  }
+  Minbw;
+  
+  @UI: {
+    identification: [{ qualifier : 'EtcInfo', position:20, importance: #HIGH }]
+  }
+  Loevm;
+    
+}
