@@ -31,16 +31,17 @@
 - ☁️ **SAP BTP · RAP**로 자재부터 구매오더·입고까지 7개 Business Object를 설계·개발했습니다.
 - 🔍 결과가 이상하면 **화면 → 로직 → DB** 순서로 데이터 흐름을 따라가며 원인을 찾습니다.
 
-```mermaid
-flowchart LR
-    A["📦 3PL 물류센터<br/>재고 불일치 경험<br/><sub>2024.03 ~ 2025.01</sub>"] --> B["☁️ 클라우드·데이터<br/>AWS · Python<br/><sub>2025.08 ~ 2025.10</sub>"]
-    B --> C["🏗️ SAP CODE 아카데미<br/>S/4HANA 구축 · MM<br/><sub>2025.10 ~ 2026.07</sub>"]
-    C --> D["🚀 SAP KDT 심화<br/>BTP · RAP · 7 BO<br/><sub>2026.07 ~ 2026.09</sub>"]
-    style A fill:#ECEFF1,stroke:#90A4AE,color:#263238
-    style B fill:#E3F2FD,stroke:#64B5F6,color:#0D47A1
-    style C fill:#E8F5E9,stroke:#66BB6A,color:#1B5E20
-    style D fill:#F3E5F5,stroke:#AB47BC,color:#4A148C
-```
+<table align="center">
+<tr>
+<td align="center" width="25%">📦<br/><b>3PL 물류센터</b><br/>재고 불일치 경험<br/><sub>2024.03 ~ 2025.01</sub></td>
+<td align="center">➜</td>
+<td align="center" width="25%">☁️<br/><b>클라우드 · 데이터</b><br/>AWS · Python<br/><sub>2025.08 ~ 2025.10</sub></td>
+<td align="center">➜</td>
+<td align="center" width="25%">🏗️<br/><b>SAP CODE 아카데미</b><br/>S/4HANA 구축 · MM<br/><sub>2025.10 ~ 2026.07</sub></td>
+<td align="center">➜</td>
+<td align="center" width="25%">🚀<br/><b>SAP KDT 심화</b><br/>BTP · RAP · 7 BO<br/><sub>2026.07 ~ 2026.09</sub></td>
+</tr>
+</table>
 
 ---
 
